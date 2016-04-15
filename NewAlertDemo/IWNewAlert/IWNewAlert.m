@@ -79,9 +79,9 @@ typedef NS_ENUM(int, ContentLabelFontSize) {
     self.windowView = [UIApplication sharedApplication].windows.firstObject;
     self.windowFrame = [[UIScreen mainScreen] bounds];
     
-    /*修改字体大小*/
+    // 修改字体大小
     self.fontSizeForBtn = SmallSizeForBtn;
-    self.fontSizeForLab = SmallSizeForContentLabel;
+    self.fontSizeForLab = NormalSizeForContentLabel;
     
     
     self.alpha = 0;
@@ -163,13 +163,13 @@ typedef NS_ENUM(int, ContentLabelFontSize) {
     
     newRect.size = CGSizeMake(self.windowFrame.size.width/4*3, self.confirmBtn.frame.origin.y + self.confirmBtn.frame.size.height + 5);
     
-    cancelFrame = self.cancelBtn.frame;
-    cancelFrame.origin.x = newRect.size.width - self.confirmBtn.frame.size.width - 8;
-    self.confirmBtn.frame = cancelFrame;
+    confirmFrame = self.cancelBtn.frame;
+    confirmFrame.origin.x = newRect.size.width - self.confirmBtn.frame.size.width - 20;
+    self.confirmBtn.frame = confirmFrame;
     
-    confirmFrame = self.confirmBtn.frame;
-    confirmFrame.origin.x = self.confirmBtn.frame.origin.x - self.confirmBtn.frame.size.width - 8;
-    self.cancelBtn.frame = confirmFrame;
+    cancelFrame = self.confirmBtn.frame;
+    cancelFrame.origin.x = self.confirmBtn.frame.origin.x - self.confirmBtn.frame.size.width - 8;
+    self.cancelBtn.frame = cancelFrame;
     
     
     
@@ -229,7 +229,7 @@ typedef NS_ENUM(int, ContentLabelFontSize) {
 - (void)show {
     [self setBlurBackgounrd];
     [self.windowView addSubview:self];
-    [self setTransform:CGAffineTransformMakeScale(0.3, 0.3)];
+    [self setTransform:CGAffineTransformMakeScale(1.2, 1.2)];
     
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseIn  animations:^{
         
@@ -254,14 +254,26 @@ typedef NS_ENUM(int, ContentLabelFontSize) {
     
     UIVisualEffectView * effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
     
-    effectView.frame = self.self.windowView.frame;
+    effectView.frame = self.windowView.frame;
     effectView.alpha = 0;
-    [self.self.windowView addSubview:effectView];
+    [self.windowView addSubview:effectView];
     
-    [UIView animateWithDuration:1.0 animations:^{
+    // 添加点击事件
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(blurBackgroundTapAction)];
+    [effectView addGestureRecognizer:tap];
+    
+    [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         effectView.alpha = 1;
+    } completion:^(BOOL finished) {
+        
     }];
+    
+    
 }
+- (void)blurBackgroundTapAction {
+    [self cancelEvent];
+}
+
 - (void)resetBlurBackgournd {
     UIVisualEffectView * effectView;
     for (UIView * effect in self.windowView.subviews) {
@@ -282,6 +294,7 @@ typedef NS_ENUM(int, ContentLabelFontSize) {
 - (void)hide {
     [UIView animateWithDuration:0.6 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseIn  animations:^{
         
+        [self setTransform:CGAffineTransformMakeScale(0.1, 0.1)];
         self.alpha = 0;
         
     } completion:^(BOOL finished) {
