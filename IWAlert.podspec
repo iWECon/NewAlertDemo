@@ -15,10 +15,10 @@ Pod::Spec.new do |s|
                     确定取消按钮置于右下角
                    DESC
   s.homepage     = "https://github.com/iWECon/NewAlertDemo"
-  s.license      = "MIT (example)"
+  s.license      = "MIT"
   s.author       = { "iWECon" => "i.1214@yahoo.com" }
   s.platform     = :ios
   s.source       = { :git => "https://github.com/iWECon/NewAlertDemo.git", :tag => "1.0.0" }
-  s.source_files = 'Classes/**/*.{h,m}'
+  s.source_files = 'NewAlertDemo/', 'NewAlertDemo/IWNewAlert/*.{h,m}'
   s.requires_arc = true
 end
