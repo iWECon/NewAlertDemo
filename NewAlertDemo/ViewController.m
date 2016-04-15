@@ -43,7 +43,7 @@
 }
 
 - (void)showAlert {
-    IWNewAlert * newAlert = [IWNewAlert setTipsContentWithContent:@"这是一个新设计的弹框提示\n多重动画效果\n实用与学习并存~" calcelAction:^{
+    IWNewAlert * newAlert = [IWNewAlert setTipsContentWithContent:@"这是一个新设计的弹框提示" calcelAction:^{
         NSLog(@"点击了取消按钮");
     } okAction:^{
         NSLog(@"点击了确定按钮");
@@ -53,7 +53,7 @@
 
 
 - (void)showAlertWithScale {
-    IWNewAlert * newAlert = [IWNewAlert setTipsContentWithContent:@"这是一个新设计的弹框提示\n多重动画效果\n实用与学习并存~" calcelAction:^{
+    IWNewAlert * newAlert = [IWNewAlert setTipsContentWithContent:@"这是一个新设计的弹框提示\n这是一个新设计的弹框提示\n这是一个新设计的弹框提示\n这是一个新设计的弹框提示\n这是一个新设计的弹框提示\n" calcelAction:^{
         NSLog(@"点击了取消按钮");
     } okAction:^{
         NSLog(@"点击了确定按钮");

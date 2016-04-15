@@ -142,30 +142,41 @@ typedef NS_ENUM(int, ContentLabelFontSize) {
     
     NSString * str = change[@"new"];
     
-    NSDictionary * attributes = @{NSFontAttributeName : [UIFont systemFontOfSize:14]};
+    NSDictionary * attributes = @{NSFontAttributeName : [UIFont systemFontOfSize:self.fontSizeForLab]};
     CGSize strSize = [str sizeWithAttributes:attributes];
     CGPoint tlPoint = self.contentLabel.frame.origin;
     CGRect tipsRect = CGRectMake(tlPoint.x, tlPoint.y, strSize.width, strSize.height);
     self.contentLabel.frame = tipsRect;
     
     
+    CGRect cancelFrame = self.cancelBtn.frame;
+    cancelFrame.origin.y = self.contentLabel.frame.origin.y + self.contentLabel.frame.size.height + 5;
+    self.cancelBtn.frame = cancelFrame;
+    
+    CGRect confirmFrame = self.confirmBtn.frame;
+    confirmFrame.origin.y = self.contentLabel.frame.origin.y + self.contentLabel.frame.size.height + 5;
+    self.confirmBtn.frame = confirmFrame;
+    
+    
     // 新的视图大小
     CGRect newRect = self.frame;
-    newRect.size = CGSizeMake(self.windowFrame.size.width/4*3, self.confirmBtn.frame.origin.y + self.confirmBtn.frame.size.height + 15);
     
-    CGRect cancelOfOrigin = self.cancelBtn.frame;
-    CGRect okOfOrigin = self.confirmBtn.frame;
+    newRect.size = CGSizeMake(self.windowFrame.size.width/4*3, self.confirmBtn.frame.origin.y + self.confirmBtn.frame.size.height + 5);
     
-    cancelOfOrigin.origin.y = self.contentLabel.frame.origin.y + self.contentLabel.frame.size.height + 10;
-    okOfOrigin.origin.y = self.contentLabel.frame.origin.y + self.contentLabel.frame.size.height + 10;
+    cancelFrame = self.cancelBtn.frame;
+    cancelFrame.origin.x = newRect.size.width - self.confirmBtn.frame.size.width - 8;
+    self.confirmBtn.frame = cancelFrame;
     
-    okOfOrigin.origin.x = newRect.size.width - okOfOrigin.size.width - 8;
-    cancelOfOrigin.origin.x = okOfOrigin.origin.x - cancelOfOrigin.size.width - 8;
+    confirmFrame = self.confirmBtn.frame;
+    confirmFrame.origin.x = self.confirmBtn.frame.origin.x - self.confirmBtn.frame.size.width - 8;
+    self.cancelBtn.frame = confirmFrame;
     
-    self.cancelBtn.frame = cancelOfOrigin;
-    self.confirmBtn.frame = okOfOrigin;
+    
+    
     
     self.frame = newRect;
+    
+    
     
     CGSize windowSize = self.windowFrame.size;
     self.frame = CGRectMake(windowSize.width/2 - self.frame.size.width/2,
