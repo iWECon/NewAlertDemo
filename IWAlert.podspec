@@ -11,13 +11,14 @@ Pod::Spec.new do |s|
   s.version      = "1.0.0"
   s.summary      = "A new ALERT, like iOS10"
   s.description  = <<-DESC
-                      A new ALERT, like iOS10
+                    仿iOS10的一个对话框/提示框
+                    确定取消按钮置于右下角
                    DESC
   s.homepage     = "https://github.com/iWECon/NewAlertDemo"
   s.license      = "MIT (example)"
   s.author       = { "iWECon" => "i.1214@yahoo.com" }
   s.platform     = :ios
   s.source       = { :git => "https://github.com/iWECon/NewAlertDemo.git", :tag => "1.0.0" }
-  s.source_files  = "IWNewAlert/", "/*.{h，m}"
+  s.source_files = 'Classes/**/*.{h,m}'
   s.requires_arc = true
 end
