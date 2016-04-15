@@ -20,6 +20,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = "8.0"
   s.source       = { :git => "https://github.com/iWECon/NewAlertDemo.git", :tag => "1.0.1" }
-  s.source_files = 'NewAlertDemo/', 'NewAlertDemo/IWNewAlert/*.{h,m}'
+  s.source_files = 'NewAlertDemo/IWNewAlert/*.{h,m}'
   s.requires_arc = true
 end
