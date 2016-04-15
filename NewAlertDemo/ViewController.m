@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) UIButton * buttonOne;
 @property (nonatomic, strong) UIButton * buttonTwo;
+
 @end
 
 @implementation ViewController
