@@ -1,5 +1,5 @@
 //
-//  TipsView.m
+//  IWTipsView.m
 //  NetWorking
 //
 //  Created by iWe on 2016/3/18.
