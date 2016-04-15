@@ -252,7 +252,7 @@ typedef NS_ENUM(int, ContentLabelFontSize) {
     }];
 }
 - (void)resetBlurBackgournd {
-    __block UIVisualEffectView * effectView;
+    UIVisualEffectView * effectView;
     for (UIView * effect in self.windowView.subviews) {
         if ([effect isKindOfClass:[UIVisualEffectView class]]) {
             effectView = (UIVisualEffectView *)effect;
@@ -264,7 +264,6 @@ typedef NS_ENUM(int, ContentLabelFontSize) {
         effectView.alpha = 0.01;
     } completion:^(BOOL finished) {
         [effectView removeFromSuperview];
-        effectView = nil;
     }];
 }
 
