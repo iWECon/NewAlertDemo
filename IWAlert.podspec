@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name         = "IWAlert"
   s.version      = "1.0.0"
-  s.summary      = "A new ALERT, like iOS10"
+  s.summary      = "A new ALERT, like iOS10, 一个仿iOS10中Safari的提示框第三方框架"
   s.description  = <<-DESC
                     仿iOS10的一个对话框/提示框
                     确定取消按钮置于右下角
