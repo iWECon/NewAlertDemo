@@ -13,6 +13,7 @@
 		DA81DD131CC09DDF002C6B45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA81DD111CC09DDF002C6B45 /* Main.storyboard */; };
 		DA81DD151CC09DDF002C6B45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA81DD141CC09DDF002C6B45 /* Assets.xcassets */; };
 		DA81DD181CC09DDF002C6B45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA81DD161CC09DDF002C6B45 /* LaunchScreen.storyboard */; };
+		DA81DD221CC09E4C002C6B45 /* IWNewAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = DA81DD211CC09E4C002C6B45 /* IWNewAlert.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		DA81DD141CC09DDF002C6B45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA81DD171CC09DDF002C6B45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA81DD191CC09DDF002C6B45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA81DD201CC09E4C002C6B45 /* IWNewAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWNewAlert.h; sourceTree = "<group>"; };
+		DA81DD211CC09E4C002C6B45 /* IWNewAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWNewAlert.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		DA81DD071CC09DDF002C6B45 /* NewAlertDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DA81DD1F1CC09E4C002C6B45 /* IWNewAlert */,
 				DA81DD0B1CC09DDF002C6B45 /* AppDelegate.h */,
 				DA81DD0C1CC09DDF002C6B45 /* AppDelegate.m */,
 				DA81DD0E1CC09DDF002C6B45 /* ViewController.h */,
@@ -77,6 +81,15 @@
 				DA81DD091CC09DDF002C6B45 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA81DD1F1CC09E4C002C6B45 /* IWNewAlert */ = {
+			isa = PBXGroup;
+			children = (
+				DA81DD201CC09E4C002C6B45 /* IWNewAlert.h */,
+				DA81DD211CC09E4C002C6B45 /* IWNewAlert.m */,
+			);
+			path = IWNewAlert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +165,7 @@
 			files = (
 				DA81DD101CC09DDF002C6B45 /* ViewController.m in Sources */,
 				DA81DD0D1CC09DDF002C6B45 /* AppDelegate.m in Sources */,
+				DA81DD221CC09E4C002C6B45 /* IWNewAlert.m in Sources */,
 				DA81DD0A1CC09DDF002C6B45 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

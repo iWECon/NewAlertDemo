@@ -7,9 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "IWNewAlert.h"
 
 @interface ViewController ()
 
+@property (nonatomic, weak) UIButton * buttonOne;
+@property (nonatomic, weak) UIButton * buttonTwo;
 @end
 
 @implementation ViewController
@@ -17,6 +20,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    for (UIView * subView in self.view.subviews) {
+        if ([subView isKindOfClass:[UIButton class]]) {
+            
+            if (subView.tag == 2015) {
+                self.buttonOne = (UIButton *)subView;
+                continue;
+            }
+            if (subView.tag == 2016) {
+                self.buttonTwo = (UIButton *)subView;
+                break;
+            }
+            
+        }
+    }
+    
+    [self.buttonOne addTarget:self action:@selector(showAlert) forControlEvents:UIControlEventTouchUpInside];
+    [self.buttonTwo addTarget:self action:@selector(showAlertWithScale) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+- (void)showAlert {
+    IWNewAlert * newAlert = [IWNewAlert setTipsContentWithContent:@"这是一个新设计的弹框提示\n多重动画效果\n实用与学习并存~" calcelAction:^{
+        NSLog(@"点击了取消按钮");
+    } okAction:^{
+        NSLog(@"点击了确定按钮");
+    }];
+    [newAlert show];
+}
+
+
+- (void)showAlertWithScale {
+    IWNewAlert * newAlert = [IWNewAlert setTipsContentWithContent:@"这是一个新设计的弹框提示\n多重动画效果\n实用与学习并存~" calcelAction:^{
+        NSLog(@"点击了取消按钮");
+    } okAction:^{
+        NSLog(@"点击了确定按钮");
+    }];
+    [newAlert showWithScaleCurrentView:self.view];
 }
 
 - (void)didReceiveMemoryWarning {
